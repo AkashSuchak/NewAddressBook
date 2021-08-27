@@ -10,13 +10,10 @@ namespace AddressBook
             Console.WriteLine("Welcome to Address Book Management System Development!");
             Console.WriteLine("======================================================");
 
-            //Call AddressBook Options
-            AddressBookBuilder addressBookBuilder = new AddressBookBuilder();
-            addressBookBuilder.AddressBookCreator();
+            //Call AddressBook
+            AddressBookMain addressBookMain = new AddressBookMain();
+            addressBookMain.Book();
 
-            //addressBookBuilder.Display(); //Display Contact
-            //addressBookBuilder.ModifyContact();//Modify Contact
-            //addressBookBuilder.DeleteContact();//Delete Contact
         }
     }
 }

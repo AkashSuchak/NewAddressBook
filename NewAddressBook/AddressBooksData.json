@@ -1,15 +1,1 @@
-{
-  "Akash": 
-  [
-    {
-      "firstName": "Akash",
-      "lastName": "Suchak",
-      "address": "AMD",
-      "city": "AMD",
-      "state": "GUJ",
-      "phoneNumber": "9999999999",
-      "email": "example.email@gmail.com",
-      "zipCode": 380001,
-      "next": null
-    }
-  ]}
+{"Akash":[{"firstName":"Akash","lastName":"as","address":"asd","city":"as","state":"as","phoneNumber":"as","email":"sa","zipCode":78,"next":null}]}
