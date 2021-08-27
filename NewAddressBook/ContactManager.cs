@@ -10,7 +10,7 @@ namespace NewAddressBook
         //options to select operation
         public static void Operations()
         {
-            Console.WriteLine("\n Available options :\n 1.Add_contact\t 2.Edit_contact\t 3.Delete_Contact\t 4.View_contacts\t 5.New_address_book\t 6.Search_person_by_cityOrState\t 0.Exit \n");
+            Console.WriteLine("\n Available options :\n 1.Add_contact\t 2.Edit_contact\t 3.Delete_Contact\t 4.View_contacts\t 5.New_address_book\t 6.Search_person_by_cityOrState\t 7.DisplayByCityState \t0.Exit \n");
             Console.Write(" Provide option :  ");
             int userAction = int.Parse(Console.ReadLine());
             string findName, searchAdrBookName;
@@ -69,6 +69,11 @@ namespace NewAddressBook
                 case 6:
                 
                     AddressBookMain.SearchPerson();
+                    Operations();
+                    break;
+
+                case 7:
+                    AddressBookMain.DisplayByCityState();
                     Operations();
                     break;
 

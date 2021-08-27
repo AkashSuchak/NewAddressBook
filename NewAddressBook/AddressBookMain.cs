@@ -258,6 +258,58 @@ namespace AddressBook
             }
 
         }
+        //View Person by City or state
+        public static void DisplayByCityState()
+        {
+            //Declaring Dictionary
+            Dictionary<string, List<Person>> personInCity = new Dictionary<string, List<Person>>();
+            Dictionary<string, List<Person>> personInState = new Dictionary<string, List<Person>>();
+
+            //Display Messages
+            Console.WriteLine(" Displying person details By City or state \n");
+            Console.Write(" Enter city name : ");
+            
+            //Read City Name
+            string cityName = Console.ReadLine();
+            personInCity[cityName] = new List<Person>();
+
+            //read State Name
+            Console.Write(" Enter State name : ");
+            string stateName = Console.ReadLine();
+            personInState[stateName] = new List<Person>();
+            
+            //Check person for display
+            foreach (var ab in contactsDictionary)
+            {
+                foreach (Person person in contactsDictionary[ab.Key])
+                {
+                    if (person.City.ToUpper().Equals(cityName.ToUpper()))
+                    {
+                        personInCity[cityName].Add(person);
+                    }
+
+                    if (person.State.ToUpper().Equals(stateName.ToUpper()))
+                    {
+                        personInState[stateName].Add(person);
+                    }
+                }
+            }
+
+            //Display
+            Console.WriteLine("\n - - -  City : {0}  - - - ", cityName);
+            foreach (var data in personInCity[cityName])
+            {
+                Console.Write(" First Name : {0} \t Last Name : {1} ", data.FirstName, data.LastName);
+                Console.Write(" \tCity \t: {0} \t State \t: {1} \n", data.City, data.State);
+            }
+
+            Console.WriteLine("\n\n - - -  State : {0}  - - - ", stateName);
+            foreach (var data in personInState[stateName])
+            {
+                Console.Write(" First Name : {0} \t Last Name : {1} ", data.FirstName, data.LastName);
+                Console.Write(" \tCity \t: {0} \t State \t: {1} \n", data.City, data.State);
+            }
+        }
 
     }
 }
