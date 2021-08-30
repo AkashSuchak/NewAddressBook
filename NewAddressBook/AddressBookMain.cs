@@ -12,19 +12,15 @@ namespace AddressBook
 {
     class AddressBookMain 
     {
-        //list for storing objects for person class
-        public List<Person> ContactList;
+        //Dictionary for storing objects for person class        
         public static Dictionary<string, List<Person>> contactsDictionary = new Dictionary<string, List<Person>>();
         public static string adrBookName;
-
-        public AddressBookMain()
-        {
-            this.ContactList = new List<Person>();
-        }
-
+        
         //starting application
         public void Book()
-        {                        
+        {
+            Console.WriteLine("Welcome to Address Book Program \n");
+            Console.WriteLine("Please provide following details : ");            
             NewAdrBook();
         }
 
@@ -53,6 +49,15 @@ namespace AddressBook
                 AddPersonInfo(adrBookName);
             }
 
+        }
+        //display all address books names
+        public static void DisplayABList()
+        {
+            Console.Write("\n Here are available address books : ");
+            foreach (var ab in AddressBookMain.contactsDictionary)
+            {
+                Console.Write("\t" + ab.Key);
+            }
         }
 
         // add contact method
@@ -292,24 +297,49 @@ namespace AddressBook
                     {
                         personInState[stateName].Add(person);
                     }
+                    else
+                    {
+                        Console.WriteLine(" City/State not found.");
+                    }
                 }
             }
 
-            //Display
-            Console.WriteLine("\n - - -  City : {0}  - - - ", cityName);
-            foreach (var data in personInCity[cityName])
+            Console.WriteLine("\n Options : 1.View persons by city/state \t 2.Get count of person by city/state \n");
+            Console.Write(" Your choice : ");
+            int option = int.Parse(Console.ReadLine());
+            if (option == 1)
             {
-                Console.Write(" First Name : {0} \t Last Name : {1} ", data.FirstName, data.LastName);
-                Console.Write(" \tCity \t: {0} \t State \t: {1} \n", data.City, data.State);
-            }
+                Console.WriteLine(" - - - - - - View Person by city and state - - - - - - ");
+                Console.WriteLine("\n - - -  City : {0}  - - - ", cityName);
+                foreach (var data in personInCity[cityName])
+                {
+                    Console.Write(" First Name : {0} \t Last Name : {1} ", data.FirstName, data.LastName);
+                    Console.Write(" \tCity \t: {0} \t State \t: {1} \n", data.City, data.State);
+                }
 
-            Console.WriteLine("\n\n - - -  State : {0}  - - - ", stateName);
-            foreach (var data in personInState[stateName])
+                Console.WriteLine("\n\n - - -  State : {0}  - - - ", stateName);
+                foreach (var data in personInState[stateName])
+                {
+                    Console.Write(" First Name : {0} \t Last Name : {1} ", data.FirstName, data.LastName);
+                    Console.Write(" \tCity \t: {0} \t State \t: {1} \n", data.City, data.State);
+                }
+            }
+            else
             {
-                Console.Write(" First Name : {0} \t Last Name : {1} ", data.FirstName, data.LastName);
-                Console.Write(" \tCity \t: {0} \t State \t: {1} \n", data.City, data.State);
+                Console.WriteLine(" - - - - - - Count of persons by city and state - - - - - - ");
+
+                Console.Write("\n City : {0} \t Number of person : {1} | ", cityName, personInCity[cityName].Count);
+                foreach (var data in personInCity[cityName])
+                {
+                    Console.Write(" {0} {1} ,", data.FirstName, data.LastName);
+                }
+
+                Console.Write("\n State : {0} \t Number of person : {1} | ", stateName, personInState[stateName].Count);
+                foreach (var data in personInState[stateName])
+                {
+                    Console.Write(" {0} {1} ,", data.FirstName, data.LastName);
+                }
             }
         }
-
     }
 }
