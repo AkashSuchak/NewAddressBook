@@ -10,7 +10,7 @@ namespace NewAddressBook
     {
         public static void FileOps()
         {
-            string path = @"C:\Users\DELL\source\repos\NewAddressBook\NewAddressBook\ContactFile.txt";
+            string path = @"C:\Users\DELL\source\repos\NewAddressBook\NewAddressBook\ContactFileCSV.csv";
             WriteDataToFile(path);
             ReadDataFromFile(path);
         }

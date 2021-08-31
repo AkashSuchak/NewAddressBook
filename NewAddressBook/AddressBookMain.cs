@@ -44,7 +44,7 @@ namespace AddressBook
                 Console.WriteLine("------------------------");
                 foreach (var ab in contactsDictionary)
                 {
-                    Console.Write("\t" + ab.Key);
+                    Console.WriteLine("\t" + ab.Key);
                 }                
                 AddPersonInfo(adrBookName);
             }
